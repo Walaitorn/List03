@@ -9,6 +9,7 @@ public class Course {
     private String description;
     private double credits;
 
+
     public Course(int courseNumber, String title, String description, double credits){
         this.courseNumber = courseNumber;
         this.title = title;
@@ -22,4 +23,5 @@ public class Course {
     public double getCredits(){ return credits; }
 
     @Override public String toString(){return title;}
+
 }

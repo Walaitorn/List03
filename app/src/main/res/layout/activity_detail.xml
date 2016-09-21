@@ -18,16 +18,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textColor="#3f3dc8" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:id="@+id/scrollView"
         android:layout_below="@+id/courseTitleText"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp" >
+        android:layout_marginBottom="10dp" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,10 +40,10 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/scrollView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp">
+        android:layout_marginTop="30dp">
 
         <ImageView
             android:layout_width="100dp"
@@ -53,12 +53,21 @@
             android:src="@drawable/logo" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView"
-            android:layout_gravity="bottom|right"
-            android:textSize="36dp" />
+            android:text="number"
+            android:id="@+id/number"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="credit"
+            android:id="@+id/credit"
+            android:textSize="15dp"
+            android:layout_below = "@+id/credit"
+            android:layout_marginLeft="10dp" />
+
     </LinearLayout>
 
 </RelativeLayout>
