@@ -8,8 +8,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.text.NumberFormat;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -28,21 +27,22 @@ public class DetailActivity extends AppCompatActivity {
         TextView descText = (TextView)findViewById(R.id.descriptionTxt);
         descText.setText(courseDesc);
 
-        String courseNum = getIntent().getStringExtra(MainActivity.Course_number);
-        TextView courseNumText = (TextView)findViewById(R.id.number);
-        courseNumText.setText("Course Number: " + courseNum);
-        mapPic(courseNum);
+        int courseNo = getIntent().getIntExtra(MainActivity.Course_Number,10101);
+        TextView courseNoText = (TextView)findViewById(R.id.courseNoText);
+        courseNoText.setText("Course No.: "+courseNo);
 
-        String courseCredit = getIntent().getStringExtra(MainActivity.Course_credit);
-        TextView courseCreditText = (TextView)findViewById(R.id.credit);
-        courseCreditText.setText("Course Credit: " + courseCredit);
+        double credits = getIntent().getDoubleExtra(MainActivity.Course_Credit,1);
+        TextView creditsTxt = (TextView)findViewById(R.id.creditsText);
+        NumberFormat formatter = NumberFormat.getInstance();
+        formatter.setMinimumFractionDigits(1);
+        creditsTxt.setText("Credits: "+formatter.format(credits));
+
+        ImageView detailImage = (ImageView)findViewById(R.id.imageCourse);
+        int res = getResources().getIdentifier("image"+courseNo,"drawable",getPackageName());
+        detailImage.setImageResource(res);
 
 
 
-        // courseImg = getIntent().getStringExtra(MainActivity.Course_number);
-        //
-        //String name = "p"+courseImg;
-        //Img.setImageDrawable(R.drawable);
     }
 
     @Override
@@ -67,19 +67,6 @@ public class DetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void mapPic (String courseNum){
-        Map<String,Integer> map = new HashMap<String, Integer>();
-        map.put("10101",R.drawable.p10101);
-        map.put("10102",R.drawable.p10102);
-        map.put("10103",R.drawable.p10103);
-        map.put("10104",R.drawable.p10104);
-        map.put("10105",R.drawable.p10105);
-        map.put("10106",R.drawable.p10106);
-        map.put("10107",R.drawable.p10107);
-        map.put("10108",R.drawable.p10108);
 
-        ImageView Img = (ImageView) findViewById(R.id.imageView2);
-        Img.setImageResource(map.get(courseNum));
-    }
 
 }
